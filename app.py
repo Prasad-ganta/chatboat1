@@ -1,9 +1,13 @@
 from flask import Flask, render_template, request, jsonify
 from groq import Groq
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
-client = Groq(api_key=os.getenv("GROQ_API_KEY")) 
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -20,9 +24,7 @@ def chat():
                 {"role": "user", "content": user_message}
             ]
         )
-
         reply = completion.choices[0].message.content
-
     except Exception as e:
         print("ERROR:", e)
         reply = "AI service error"
@@ -30,4 +32,5 @@ def chat():
     return jsonify({"reply": reply})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
