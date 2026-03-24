@@ -1,12 +1,9 @@
+promblem 5: 
 Context Aware Chatbot
 About the Project
-
 This project is a simple chatbot built using Flask and an AI API. The main idea is to create a chatbot that can handle conversations like a customer support assistant.
-
 Instead of replying randomly, the chatbot is designed to understand the user’s message and give meaningful responses. It also supports basic multi-turn conversations, so the user can ask follow-up questions.
-
 Why I Built This
-
 In real customer support systems, users don’t ask everything in one message. They ask step by step. So I wanted to build a chatbot that can handle that kind of conversation.
 
 This project helped me understand how frontend and backend communicate and how APIs are used to generate responses.
